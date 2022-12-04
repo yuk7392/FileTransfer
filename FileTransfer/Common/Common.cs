@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -32,6 +33,7 @@ namespace FileTransfer
 
                 if (dnsHost.AddressList.Count() < 0 || dnsHost.AddressList[0].ToString() != NCSI_DNS_IP_ADDRESS)
                     return false;
+
                 return true;
             }
             catch (Exception ex)
@@ -39,6 +41,23 @@ namespace FileTransfer
                 LogManager.WriteLog(ex);
                 return false;
             }
+        }
+
+        public static bool IsFileLocked(string pPath)
+        {
+            try
+            {
+                using (FileStream fs = new FileInfo(pPath).Open(FileMode.Open, FileAccess.Read, FileShare.None))
+                {
+                    fs.Close();
+                }
+            }
+            catch (IOException)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace FileTransfer
 
         private static void CheckBasicFiles()
         {
-            logDirPath = @"C:/FileTransfer/log";
-            logFileName = "/log_" + DateTime.Now.ToString("yyyyMMdd");
+            logDirPath = @"C:\FileTransfer\log";
+            logFileName = @"\log_" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
 
             DirectoryInfo dirInfo = new DirectoryInfo(logDirPath);
 
