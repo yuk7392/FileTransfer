@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\FormCommon.cs" />
     <Compile Include="Common\MsgBox.cs" />
+    <Compile Include="Common\OptionManager.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
